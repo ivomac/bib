@@ -1,3 +1,4 @@
+
 # Bibliographic manager
 
 A python script to manage a local bibliographic repository.
@@ -7,7 +8,7 @@ A python script to manage a local bibliographic repository.
 * Search through entire library on text scraped from pdfs.
 * Tag documents with keywords for easier search.
 
-[](vid)
+[Turing.webm](https://github.com/ivomac/bib/assets/45886067/c9e45b54-41ad-4c52-8146-754def098eb8)
 
 In the video we:
 
