@@ -1,0 +1,9 @@
+[
+	{
+		"queries": ["all:openai AND all:chatgpt", "ti:singularity"],
+		"categories": ["cs.AI", "cs.IT"],
+		"max_results": "5",
+		"sortBy": "lastUpdatedDate",
+		"tags": ["THE_END_IS_NIGH"]
+	}
+]

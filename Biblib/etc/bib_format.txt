@@ -1,0 +1,30 @@
+bibtool
+-f
+%n(author):%4d(year)
+-s
+--
+rewrite.rule={"^\"\([^#]*\)\"$" "{\1}"}
+--
+sort.format={%N(year)}
+--
+print.line.length={999}
+--
+print.indent={4}
+--
+print.align={16}
+--
+print.align.key={0}
+--
+print.align.string={16}
+--
+print.align.comment={0}
+--
+print.align.preamble={0}
+--
+print.terminal.comma={True}
+--
+print.use.tab={False}
+--
+select.fields={"author"}
+--
+sort.order{* = title # author # journal # series # publisher # volume # issue # number # pages # numpages # year # month # day # publisher # eprint # isbn # doi # url}
