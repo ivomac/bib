@@ -93,18 +93,20 @@ def main():
 
     bib.lock()
 
-    if "add" in args.ACTION:
-        refs = set()
-        for ref in args.REFERENCES:
-            refs.add(bib.add(args.DOCTYPE, ref))
-        if args.open:
-            bib.open(refs)
-        if args.copy:
-            bib.copy(refs)
-    else:
-        getattr(bib, args.ACTION)()
-    bib.update()
-    bib.unlock()
+    try:
+        if "add" in args.ACTION:
+            refs = set()
+            for ref in args.REFERENCES:
+                refs.add(bib.add(args.DOCTYPE, ref))
+            if args.open:
+                bib.open(refs)
+            if args.copy:
+                bib.copy(refs)
+        else:
+            getattr(bib, args.ACTION)()
+        bib.update()
+    finally:
+        bib.unlock()
 
     return
 
