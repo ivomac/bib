@@ -35,7 +35,6 @@ class Bibliography(dict):
         di = Path(BIB)
         di.mkdir(parents=True, exist_ok=True)
         fl = di / "bib.json"
-        lock_file = di / ".bib.lock"
 
         if fl.is_file():
             ini_bib = json.loads(fl.read_text())
@@ -49,24 +48,9 @@ class Bibliography(dict):
 
         bib.dir = di
         bib.file = fl
-        bib.lock_file = lock_file
         bib.bibtex = bib.dir / "bib.bib"
 
         bib.types = ("doi", "isbn", "arxiv")
-        return
-
-    def lock(bib):
-        if bib.lock_file.is_file():
-            exit(
-                "Bib file in use at the moment!"
-                "(If not, force-remove the lock: bib -L )"
-            )
-        else:
-            bib.lock_file.touch()
-        return
-
-    def unlock(bib):
-        bib.lock_file.unlink()
         return
 
     def delete(bib, ref):

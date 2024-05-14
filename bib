@@ -4,6 +4,11 @@ from argparse import ArgumentParser
 
 from Biblib.Bibliography import Bibliography
 
+from filelock import FileLock
+
+
+lock = FileLock("/tmp/bib.lock")
+
 
 def main():
     parser = ArgumentParser(
@@ -58,12 +63,6 @@ def main():
         help="Force OCR of documents.",
     )
     parser.add_argument(
-        "-L",
-        "--remove-lock",
-        action="store_true",
-        help="Remove lock file of Library.",
-    )
-    parser.add_argument(
         "-t",
         "--tags",
         default="",
@@ -82,18 +81,10 @@ def main():
         help="Alternative document id to use for bib entry.",
     )
 
-    args = parser.parse_args()
+    with lock:
+        args = parser.parse_args()
+        bib = Bibliography(args)
 
-    bib = Bibliography(args)
-
-    if args.remove_lock:
-        bib.unlock()
-        print("Lock removed.")
-        return
-
-    bib.lock()
-
-    try:
         if "add" in args.ACTION:
             refs = set()
             for ref in args.REFERENCES:
@@ -105,8 +96,6 @@ def main():
         else:
             getattr(bib, args.ACTION)()
         bib.update()
-    finally:
-        bib.unlock()
 
     return
 

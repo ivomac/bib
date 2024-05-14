@@ -27,6 +27,7 @@ In the video we:
     * reportlab
     * unidecode
     * json
+    * filelock
 
 * [fzf](https://github.com/junegunn/fzf)
 
