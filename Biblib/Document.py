@@ -330,7 +330,6 @@ class Document(dict):
             output_type="pdfa",
             jobs=4,
             rotate_pages=True,
-            remove_background=True,
             deskew=True,
             force_ocr=True,
             skip_big=20,

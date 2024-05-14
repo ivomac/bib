@@ -32,6 +32,8 @@ In the video we:
 
 * [bibtool](http://www.gerd-neugebauer.de/software/TeX/BibTool/en/)
 
+* bc
+
 ## Commands
 
 

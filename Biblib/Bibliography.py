@@ -328,7 +328,7 @@ def FZF(inp, keys, query):
         r"""
             v=$(echo {q} | tr " " "|")
         echo {} |
-        grep -a -E "^|$v" -i --color=always | fold -s -w $(c $COLUMNS-5)
+        grep -a -E "^|$v" -i --color=always | fold -s -w $(echo "$COLUMNS-5" | bc)
         """,
     ]
     try:
